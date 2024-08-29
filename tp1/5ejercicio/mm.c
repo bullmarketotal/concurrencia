@@ -87,23 +87,25 @@ void printMat(double mat[][N], int len)
 
 void *worker(void *arg)
 {
-	HilosData *data = (HilosData *) arg;
-        int init_fila = (*data).init_fila;
-	int end_fila = (*data).end_fila;
-	int i,j,k;
+    HilosData *data = (HilosData *) arg;
+    int init_fila = (*data).init_fila;
+    int end_fila = (*data).end_fila;
+    int i, j, k;
 
-	for(i = init_fila; i < end_fila; ++i)
-	{
-		for ( j = 0; j < N; ++j)
-		{
-			for(k = 0; k < N; k++)
-			{
-				c[i][j] = a[i][k] * b[k][j];
-			}
-		}
-	}
-	return NULL;
+    for(i = init_fila; i < end_fila; ++i)
+    {
+        for (j = 0; j < N; ++j)
+        {
+            c[i][j] = 0; 
+            for(k = 0; k < N; k++)
+            {
+                c[i][j] += a[i][k] * b[k][j]; 
+            }
+        }
+    }
+    return NULL;
 }
+
 
 void mm(int H) {
     pthread_t hilos[H];
@@ -134,14 +136,14 @@ int main(int argc, char *argv[])
 {
 	if( argc != 2)
 	{
-		printf("Error en parametros");
+		printf("Error en parametros. Invoque  con un divisor  de %d", N);
 		exit(1);	
 	}
 	int H = atoi(argv[1]);
 	
 	if(N%H != 0) 
 	{
-		printf("El parametro debe ser un divisor entero de %d\n",N);
+		printf("El parametro debe ser un divisor de %d\n",N);
 		exit(1);
 	}
 
