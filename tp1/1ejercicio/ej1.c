@@ -17,17 +17,17 @@ void* contadorr(void* arg)
 {
 	
 	int hilo_num = *((int*)arg);
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 10000; i++)
 	{
 		if(hilo_num == 0)
 		{
-			contador = contador + 2;
+			contador = contador +   2;
 			printf("hilo %d incremento el contador en 2. Valor del contador %d\n",hilo_num + 1, contador);
 			
 		}
 		else
 		{
-			contador = contador -1;
+			contador = contador - 1;
 			printf("hilo %d descremento el contador en 1. Valor del contador: %d\n", hilo_num + 1,contador);
 			
 		}
@@ -44,6 +44,7 @@ int main(){
 
 	for(int i = 0; i < 3; i++){
 		indices[i] = i;
+		//printf("valor del indice %d\n", indices[i]);
 	}
 
 	pthread_create(&hilos[0],NULL, contadorr, &indices[0]);
