@@ -1,0 +1,20 @@
+ANOTACIONES CUESTIONARIO 2 CONCURENCIA: 
+
+aserción = proposicion lógica
+TEĆNICAS PARA EVITAR INTERFERENCIA:
+
+	**** VARIABLES DISJUNTOS *** <--- TÉCNICA DE PROGRAMCIÓN
+	**** ASERCIONES DEILITADAS *** <-- Tecnica para analizar codigo, no para programar
+	***INVARAINTES GLOBALES*** <--- EN EL EL MEDIO
+	*** SINCRONIZACIÓN**** <-- TÉCNICA DE PROGRAMACIÓN
+	
+Variables disjuntas: EL conunt ode escritura no debe interferir en el conjunto de referencia
+
+
+Aserciones debilitada: SI el conjunto de escitura interefiere en el conjunto de referencia o visceversa. No entendí bien
+
+Invariantes globales: Proposicion logica que debe ser repsetada siempre. Tipicamente acompañado por mutex
+
+Sincronización: Atomicidad de grano grueso garantizada por la exclusion mutua 
+
+
